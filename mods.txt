@@ -1,0 +1,21 @@
+1
+галочка искать по целым словам (qwe не найдет qweqwe)
+
+2
+сообщение пользователю, предупреждение о неправильном вводе и т.п. (не директории, и т.п.)
+
+3
+Не показывать полный путь до файла.
+Спинбокс для большего колва строк найденных. Нужную строку выделить жирным.
+
+
+if (ui.searchInName.isChecked()):
+        if selectedExtension != "all":
+            rawOutput = subprocess.Popen(["ag", "-s" if ui.useRegister.isChecked() else "-i", "-g" + textToFind, selectedExtension, startDirectory], encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
+        else:
+            rawOutput = subprocess.Popen(["ag", "-s" if ui.useRegister.isChecked() else "-i", "-g" + textToFind, startDirectory], encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
+    else:
+        if selectedExtension != "all":
+            rawOutput = subprocess.Popen(["ag", "-C" + str(ui.rowCountSpinBox.value()), "-s" if ui.useRegister.isChecked() else "-i", selectedExtension, textToFind, startDirectory], encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
+        else:
+            rawOutput = subprocess.Popen(["ag", "-C" + str(ui.rowCountSpinBox.value()), "-s" if ui.useRegister.isChecked() else "-i", textToFind, startDirectory], encoding='utf-8', stdout=subprocess.PIPE).communicate()[0]
