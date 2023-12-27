@@ -5,7 +5,7 @@ FileFinder - приложение для поиска файлов на комп
 
 Установить pyinstaller с помощью команды:
 
-pip install pyinstaller
+///pip install pyinstaller
 
 Перейти в директорию, где находится программа с помощью команды:
 
